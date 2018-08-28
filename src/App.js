@@ -152,7 +152,7 @@ class App extends Component {
     }
   }
   getCurrWeather(){
-    var url = 'http://api.openweathermap.org/data/2.5/weather?id=4241704&APPID=';
+    var url = 'https://api.openweathermap.org/data/2.5/weather?id=4241704&APPID=';
     const APIKEY = '606932a10e94518fbb30ea03566eba3a';
     url += APIKEY;
     fetch(url)
