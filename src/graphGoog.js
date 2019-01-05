@@ -18,7 +18,7 @@ class GraphGoog extends Component{
     data.addColumn('number', 'Temperature');
     var weat = [];
     this.props.weatherData.map((i) => {
-        var hour = parseInt(i.time.substr(0, 2));
+        var hour = (parseInt(i.time.substr(0, 2)) - 5) % 24 + 24;
         var minute = parseInt(i.time.substr(3, 5));
         var seconds = 0;
         weat.push([[hour, minute, seconds], parseInt(i.temp)])
