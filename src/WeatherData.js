@@ -105,7 +105,7 @@ function getCurrWeather(buttonSelection){
 }
 
 function getUserLocation(){
-  fetch("http://ipinfo.io/json").then(
+  fetch("https://ipinfo.io/json").then(
     (response) => {return response.json()}
     ).then(
     (data) => {
