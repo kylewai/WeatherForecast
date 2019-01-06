@@ -16,7 +16,9 @@ function resetFields(){
   this.setState({
     searchCoords: searchCoords,
     weatherChoice: false,
-    inputCoords: false
+    inputCoords: false,
+    dayToRender: null,
+    weatherObj: null
   });
 }
 
