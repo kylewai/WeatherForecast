@@ -74,6 +74,8 @@ function DayCard(props){
     case 'Clear': picSrc = 'sunny.jpg';
     break;
     case 'Thunderstorm': picSrc = 'thunderstorm.jpg';
+    break;
+    case 'Snow': picSrc = 'snow.jpg';
   }
 
   return(
