@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 
 function BackButton(props){
   return(
-    <button onClick = {props.resetFields} className = "btn btn-primary"><Link to = "/" style={{ textDecoration: 'none', color: 'white'}}>Back</Link></button>
+    <button onClick={props.resetFields} className="btn btn-primary"><Link className="link-back" to="/">Back</Link></button>
   );
 }
 

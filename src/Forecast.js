@@ -55,10 +55,10 @@ function renderForecast(){
     weatherDetails = this.state.currWeatherObj.weather[0].description;
     return (
       <div>
-        <p style = {{fontSize: '25px'}}>{this.state.currTemp}</p>
+        <p className="current-display-temp">{this.state.currTemp}</p>
         <p>{genWeather}</p>
         <p>{weatherDetails}</p>
-        <GraphGoog weatherData = {dataArr} />
+        <GraphGoog weatherData={dataArr} />
       </div>
     );
   }
@@ -67,10 +67,10 @@ function renderForecast(){
     weatherDetails = firstInstance.weather[0].description;
     return (
       <div>
-        <p style = {{fontSize: '25px'}}>{currMaxFahr}</p>
+        <p className="current-display-temp">{currMaxFahr}</p>
         <p>{genWeather}</p>
         <p>{weatherDetails}</p>
-        <GraphGoog weatherData = {dataArr} />
+        <GraphGoog weatherData={dataArr} />
       </div>
     );
   }

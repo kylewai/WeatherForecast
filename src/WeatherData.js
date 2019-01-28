@@ -9,7 +9,7 @@ function checkError(lat, long){
     errors.push("Invalid coordinates: (-90 < Latitude < 90) | (-180 < Longitude < 180)");
     isErr = true;
   }
-  if(lat === "" || long === "" || isNaN(parseInt(lat)) || isNaN(parseInt(long))){
+  if(lat === "" || long === "" || isNaN(lat) || isNaN(long)){
     errors.push("Coordinates must be numeric");
     isErr = true;
   }

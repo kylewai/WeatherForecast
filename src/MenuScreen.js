@@ -11,25 +11,25 @@ class MenuScreen extends Component{
   render(){
     return (this.props.weatherChoice)? <Redirect to = "/weather" /> :
     (
-      <div className = "container-fluid" style = {{paddingTop: '250px', backgroundSize: '100% 100%', height: '100vh', backgroundRepeat: 'no-repeat', backgroundImage: 'url(https://image.freepik.com/foto-gratis/cielo-de-las-nubes-de-la-sol-durante-fondo-de-la-manana-azul-cielo-pastel-blanco-foco-suave-foco-de-luz-solar-resumen-borrosa-cian-degradado-de-la-naturaleza-pacifica-abrir-la-vista-hacia-fuera-las-ventanas-primavera-de-verano-hermoso_1253-1313.jpg)'}}>
-        <div className = "row">
-          <div className = "col-sm-3">
+      <div className="container-fluid menu-screen">
+        <div className="row">
+          <div className="col-sm-3">
           </div>
-          <div className = "col-sm-2" style = {{position: 'relative'}}>
-            <button onClick = {this.props.generateInputFields} className = "btn btn-primary" type = "submit" style = {{position: 'absolute', bottom: 0}}>Enter Coordinates</button>
+          <div className="col-sm-2 col-menu-left-btn">
+            <button onClick={this.props.generateInputFields} className="btn btn-primary btn-menu-left-option" type="submit">Enter Coordinates</button>
           </div>
-          <div className = "col-sm-1">
+          <div className="col-sm-1">
           </div>
-          <div className = "col-sm-3">
-            <button onClick = {() => this.props.getWeatherData("local")} className = "btn btn-primary" type = "submit">Weather for {this.props.location["city"]}, {this.props.location['country']}</button>
+          <div className="col-sm-3">
+            <button onClick={() => this.props.getWeatherData("local")} className="btn btn-primary" type="submit">Weather for {this.props.location["city"]}, {this.props.location['country']}</button>
           </div>
         </div>
-        <div className = "row">
-          <div className = "col-sm-3">
+        <div className="row">
+          <div className="col-sm-3">
           </div>
-          <div className = "col-sm-3" style = {{position: 'relative'}}>
-            {this.props.inputCoords && <CoordInput updateCoordsInput = {this.props.updateCoordsInput} getWeatherData = {this.props.getWeatherData}
-            searchCoords = {this.props.searchCoords} errors = {this.props.errors}/> }
+          <div className="col-sm-3 col-menu-right-btn">
+            {this.props.inputCoords && <CoordInput updateCoordsInput={this.props.updateCoordsInput} getWeatherData={this.props.getWeatherData}
+            searchCoords={this.props.searchCoords} errors={this.props.errors}/> }
           </div>
         </div>
       </div>
@@ -40,14 +40,14 @@ class MenuScreen extends Component{
 function CoordInput(props){
   return(
     <div>
-      <input onChange = {props.updateCoordsInput} value = {props.searchCoords['lat']} name = "lat" placeholder = "Latitude" type = "text" style = {{margin: '10px 0px 5px 0px'}}/>
+      <input className="input-lat" onChange={props.updateCoordsInput} value={props.searchCoords['lat']} name="lat" placeholder="Latitude" type="text"/>
       <br></br>
-      <input onChange = {props.updateCoordsInput} value = {props.searchCoords['long']} name = "long" placeholder = "Longitude" type = "text" style = {{marginBottom: '5px'}}/>
+      <input className="input-long" onChange={props.updateCoordsInput} value={props.searchCoords['long']} name="long" placeholder="Longitude" type="text"/>
       <br></br>
       {props.errors.map((i, index) => {
-        return <p key = {index} style = {{color: 'red'}}><strong>{i}</strong></p>
+        return <p key={index} style={{color: 'red'}}><strong>{i}</strong></p>
       })}
-      <button onClick = {() => props.getWeatherData("search")} className = "btn btn-primary">Submit</button>
+      <button onClick={() => props.getWeatherData("search")} className="btn btn-primary">Submit</button>
     </div>
   );
 }

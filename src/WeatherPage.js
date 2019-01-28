@@ -8,7 +8,7 @@ class WeatherPageLayout extends Component{
   }
   render(){
     return(
-      <div className = "container-fluid" style = {{backgroundSize: '100% 100%', height: '100vh', backgroundRepeat: 'no-repeat', backgroundAttachment: 'fixed', backgroundImage: 'url(https://image.freepik.com/foto-gratis/cielo-de-las-nubes-de-la-sol-durante-fondo-de-la-manana-azul-cielo-pastel-blanco-foco-suave-foco-de-luz-solar-resumen-borrosa-cian-degradado-de-la-naturaleza-pacifica-abrir-la-vista-hacia-fuera-las-ventanas-primavera-de-verano-hermoso_1253-1313.jpg)'}}>
+      <div className = "container-fluid weather-page">
         <div className = "row">
           <div className = "col-sm-2">
             <ShowingLocation location = {this.props.location} buttonSelection = {this.props.buttonSelection} searchCoords = {this.props.searchCoords} />
@@ -28,12 +28,12 @@ class WeatherPageLayout extends Component{
 
 function ShowingLocation(props){
   return (props.buttonSelection === 'local')? (
-    <p style = {{textAlign: 'center', backgroundColor: '#66f0f9', padding: '5px', margin: '0'}}><strong>
+    <p className="show-city"><strong>
       {props.location['city'] + ", " + props.location['country']}
     </strong></p>
   ) :
   (
-    <p style = {{textAlign: 'center', backgroundColor: '#66f0f9', padding: '5px', margin: '0', whiteSpace: 'pre-line'}}><strong>
+    <p className="show-coords"><strong>
       {"Lat: " + props.searchCoords['lat']} <br></br>
       {"Lon: " + props.searchCoords['long']}
     </strong></p>
