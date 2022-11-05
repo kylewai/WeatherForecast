@@ -1,6 +1,7 @@
 import React from 'react';
 //Performs API fetching to get weather
 //forecast, current weather data, and user location
+const APIKEY = 'e65d49d4e52bab1fa850e7e4d3a3f63f';
 
 function checkError(lat, long){
   var errors = [];
@@ -35,7 +36,6 @@ function getWeatherData(buttonSelection){
   }
   var url = 'https://api.openweathermap.org/data/3.0/onecall?lat=' +
      latitude + '&lon=' + longitude + '&APPID=';
-  const APIKEY = 'e65d49d4e52bab1fa850e7e4d3a3f63f';
   url += APIKEY;
   console.log(url);
   // fetch("demoWeatherData.json")
@@ -62,20 +62,6 @@ function getWeatherData(buttonSelection){
         )
         console.log(dayOrder);
         console.log(dateOrder);
-        // dateOrder.push(firstDate);
-        // dayOrder.push(new Date(firstDate).getDay());
-        // currDate = firstDate;
-        // //Adding new date to arrays for each unique date
-        // result.list.forEach(
-        //   function(obj){
-        //     if(obj.dt_txt.slice(0, 11) !== currDate){
-        //       currDate = obj.dt_txt.slice(0, 11);
-        //       var date = new Date(currDate);
-        //       dayOrder.push(date.getDay());
-        //       dateOrder.push(currDate.slice(0, 11));
-        //     }
-        //   }
-        // )
         this.setState({
           weatherObj: result,
           daySequence: {
@@ -104,7 +90,6 @@ function getFiveDayForecast(buttonSelection){
     longitude = this.state.searchCoords['long'];
   }
   var url = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + latitude + '&lon=' + longitude + '&APPID=';
-  const APIKEY = 'e65d49d4e52bab1fa850e7e4d3a3f63f';
   url += APIKEY;
   // fetch("demoForecastData.json")
   fetch(url)
@@ -118,35 +103,6 @@ function getFiveDayForecast(buttonSelection){
     )
     return null;
 }
-
-// function getCurrWeather(buttonSelection){
-//   var latitude = "";
-//   var longitude = "";
-//   if(buttonSelection === "local"){
-//     latitude = this.state.coords['lat'];
-//     longitude = this.state.coords['long'];
-//   }
-//   else{
-//     latitude = this.state.searchCoords['lat'];
-//     longitude = this.state.searchCoords['long'];
-//   }
-//   var url = 'https://api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&lon=' + longitude + '&APPID=';
-//   const APIKEY = '606932a10e94518fbb30ea03566eba3a';
-//   url += APIKEY;
-//   fetch(url)
-//     .then(res => res.json())
-//     .then(
-//       (result) => {
-//         var KelTemp = result.main.temp;
-//         var FahrTemp = ((KelTemp - 273.15) * 9 / 5 + 32).toFixed(0);
-//         this.setState({
-//           currTemp: FahrTemp,
-//           currWeatherObj: result
-//         });
-//       }
-//     )
-//     return null;
-// }
 
 function getUserLocation(){
   fetch("https://ipinfo.io?token=f1584d719f1363").then(
