@@ -1,4 +1,4 @@
 # WeatherForecast
-Summer project I worked on learning React.js. I used the OpenWeather API for weather data and Google Charts API for generating a graph of daily temperatures.
+Web app for displaying weather forecast. Uses the OpenWeather API for weather data and Google Charts API for generating a graph of temperatures for each day.
 
 App deployed on Heroku: https://kkwweatherapp.herokuapp.com/weather
