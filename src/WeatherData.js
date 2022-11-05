@@ -38,7 +38,8 @@ function getWeatherData(buttonSelection){
   const APIKEY = 'e65d49d4e52bab1fa850e7e4d3a3f63f';
   url += APIKEY;
   console.log(url);
-  fetch("demoWeatherData.json")
+  // fetch("demoWeatherData.json")
+  fetch(url)
     .then(res => res.json())
     .then(
       (result) => {
@@ -105,7 +106,8 @@ function getFiveDayForecast(buttonSelection){
   var url = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + latitude + '&lon=' + longitude + '&APPID=';
   const APIKEY = 'e65d49d4e52bab1fa850e7e4d3a3f63f';
   url += APIKEY;
-  fetch("demoForecastData.json")
+  // fetch("demoForecastData.json")
+  fetch(url)
     .then(res => res.json())
     .then(
       (result) => {
