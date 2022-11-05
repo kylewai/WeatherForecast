@@ -1,6 +1,6 @@
 {
   "name": "weather",
-  "version": "0.1.0",
+  "version": ".1.0",
   "private": true,
   "dependencies": {
     "google-charts": "^1.5.0",
@@ -8,6 +8,9 @@
     "react-dom": "^16.4.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4"
+  },
+  "engines": {
+    "node": "12.x"
   },
   "scripts": {
     "start": "react-scripts start",
