@@ -17,9 +17,15 @@ class GraphGoog extends Component{
     data.addColumn('timeofday', 'Hour');
     data.addColumn('number', 'Temperature');
     var weat = [];
+    var dateObj;
+    var hour;
+    var minute;
+    console.log(this.props.weatherData.toString());
     this.props.weatherData.map((i) => {
-        var hour = (parseInt(i.time.substr(0, 2)) - 5) % 24 + 24;
-        var minute = parseInt(i.time.substr(3, 5));
+        dateObj = new Date((new Date(i.time)).toLocaleString("en-US", {timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone}));
+        console.log("graph: " + dateObj.toLocaleString());
+        hour = dateObj.getHours();
+        minute = dateObj.getMinutes();
         var seconds = 0;
         weat.push([[hour, minute, seconds], parseInt(i.temp)])
     });

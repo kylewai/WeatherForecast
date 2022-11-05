@@ -5,7 +5,7 @@ import WeatherPageLayout from './WeatherPage';
 import {resetFields} from './Nav';
 import {displayForecast, renderForecast} from './Forecast';
 import MenuScreen, {updateCoordsInput, generateInputFields} from './MenuScreen';
-import {checkError, getWeatherData, getCurrWeather, getUserLocation} from './WeatherData';
+import {checkError, getWeatherData, getFiveDayForecast, getUserLocation} from './WeatherData';
 
 Date.prototype.addDays = function(days){
   var dat = new Date(this.valueOf());
@@ -44,12 +44,13 @@ class App extends Component {
       currTemp: '',
       dayMax: '',
       weatherObj: null,
+      fivedayForecastData: null,
       errors: []
     }
     this.renderForecast = renderForecast.bind(this);
     this.getUserLocation = getUserLocation.bind(this);
     this.getWeatherData = getWeatherData.bind(this);
-    this.getCurrWeather = getCurrWeather.bind(this);
+    this.getFiveDayForecast = getFiveDayForecast.bind(this);
     this.generateInputFields = generateInputFields.bind(this);
     this.updateCoordsInput = updateCoordsInput.bind(this);
     this.checkError = checkError.bind(this);
@@ -67,24 +68,25 @@ class App extends Component {
   }
   componentDidMount(){
     this.getUserLocation();
+    console.log("yes");
   }
 
   render() {
     return (
       <Router>
         <div>
-          <Route exact path = "/" render = {(props) => (<MenuScreen {...props} location = {this.state.location}
-            getWeatherData = {this.getWeatherData} generateInputFields = {this.generateInputFields} inputCoords = {this.state.inputCoords}
-            weatherChoice = {this.state.weatherChoice} updateCoordsInput = {this.updateCoordsInput} searchCoords = {this.state.searchCoords}
-            errors = {this.state.errors}/>)} />
+          <Route exact path="/" render={(props) => (<MenuScreen {...props} location={this.state.location}
+            getWeatherData={this.getWeatherData} generateInputFields={this.generateInputFields} inputCoords={this.state.inputCoords}
+            weatherChoice={this.state.weatherChoice} updateCoordsInput={this.updateCoordsInput} searchCoords={this.state.searchCoords}
+            errors={this.state.errors}/>)} />
 
-          <Route path = "/weather" render = {(props) => ((this.state.weatherObj)? (
-            <WeatherPageLayout {...props} location = {this.state.location} buttonSelection = {this.state.buttonSelection}
-              searchCoords = {this.state.searchCoords} resetFields = {this.resetFields} renderForecast = {this.renderForecast}
-              currWeatherObj = {this.state.currWeatherObj} currTemp = {this.state.currTemp} daySequence = {this.state.daySequence}
-              displayForecast = {this.displayForecast} weatherObj = {this.state.weatherObj} currentDate = {this.state.currentDate}
-              dayToRender = {this.state.dayToRender}/>
-            ) : <Redirect to = "/" /> )} />
+          <Route path="/weather" render={(props) => ((this.state.weatherObj)? (
+            <WeatherPageLayout {...props} location={this.state.location} buttonSelection={this.state.buttonSelection}
+              searchCoords={this.state.searchCoords} resetFields={this.resetFields} renderForecast={this.renderForecast}
+              currWeatherObj={this.state.currWeatherObj} currTemp={this.state.currTemp} daySequence={this.state.daySequence}
+              displayForecast={this.displayForecast} weatherObj={this.state.weatherObj} fivedayForecastData={this.state.fivedayForecastData}
+              currentDate={this.state.currentDate} dayToRender={this.state.dayToRender}/>
+            ) : <Redirect to="/" /> )} />
         </div>
       </Router>
     );

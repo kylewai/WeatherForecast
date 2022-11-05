@@ -16,9 +16,9 @@ class WeatherPageLayout extends Component{
           </div>
           <div className = "col-sm-auto">
             <DayCardList currTemp = {this.props.currTemp} currWeatherObj = {this.props.currWeatherObj} daySequence = {this.props.daySequence}
-              displayForecast = {this.props.displayForecast} weatherObj = {this.props.weatherObj} currentDate = {this.props.currentDate} />
+              displayForecast = {this.props.displayForecast} weatherObj = {this.props.weatherObj} fivedayForecastData = {this.props.fivedayForecastData} currentDate = {this.props.currentDate} />
             <br></br><br></br>
-            {(this.props.dayToRender && this.props.currWeatherObj)? this.props.renderForecast() : <p>Click on cards to view forecast</p>}
+            {(this.props.dayToRender)? this.props.renderForecast() : <p>Click on cards to view forecast</p>}
           </div>
         </div>
       </div>
